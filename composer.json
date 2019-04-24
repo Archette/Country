@@ -10,5 +10,18 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "autoload": {
+        "psr-4": {
+            "Archette\\Country\\": "src"
+        }
+    },
+    "require": {
+        "rixafy/country": "dev-master",
+        "nette/di": "^3.0@dev"
+    },
+    "config": {
+        "platform": {
+            "php": "7.3"
+        }
+    }
 }
