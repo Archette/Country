@@ -13,14 +13,14 @@ use Rixafy\Country\CountryRepository;
 
 class CountryExtension extends CompilerExtension
 {
-	public function beforeCompile()
+	public function beforeCompile(): void
 	{
 		/** @var ServiceDefinition $annotationDriver */
 		$annotationDriver = $this->getContainerBuilder()->getDefinitionByType(AnnotationDriver::class);
 		$annotationDriver->addSetup('addPaths', [['vendor/rixafy/country']]);
 	}
 
-	public function loadConfiguration()
+	public function loadConfiguration(): void
 	{
 		$this->getContainerBuilder()->addDefinition($this->prefix('countryFactory'))
 			->setFactory(CountryFactory::class);
