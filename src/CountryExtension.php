@@ -33,7 +33,7 @@ class CountryExtension extends CompilerExtension
 			->setFactory(CountryFacade::class);
 
 		$this->getContainerBuilder()->addDefinition($this->prefix('countryUpdateCommand'))
-			->setFactory(CurrencyUpdateCommand::class)
+			->setFactory(CountryUpdateCommand::class)
 			->addTag('console.command', 'rixafy:country:update');
 	}
 }
