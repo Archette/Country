@@ -16,9 +16,14 @@ class CountryExtension extends CompilerExtension
 {
 	public function beforeCompile(): void
 	{
-		/** @var ServiceDefinition $annotationDriver */
-		$annotationDriver = $this->getContainerBuilder()->getDefinitionByType(MappingDriver::class);
-		$annotationDriver->addSetup('addPaths', [['vendor/rixafy/country']]);
+		if (class_exists('Nettrine\ORM\DI\Helpers\MappingHelper')) {
+			\Nettrine\ORM\DI\Helpers\MappingHelper::of($this)
+				->addAnnotation('Rixafy\Country', __DIR__ . '/../../../rixafy/country');
+		} else {
+			/** @var ServiceDefinition $annotationDriver */
+			$annotationDriver = $this->getContainerBuilder()->getDefinitionByType(AnnotationDriver::class);
+			$annotationDriver->addSetup('addPaths', [['vendor/rixafy/country']]);
+		}
 	}
 
 	public function loadConfiguration(): void
