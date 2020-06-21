@@ -21,7 +21,7 @@ class CountryExtension extends CompilerExtension
 				->addAnnotation('Rixafy\Country', __DIR__ . '/../../../rixafy/country');
 		} else {
 			/** @var ServiceDefinition $annotationDriver */
-			$annotationDriver = $this->getContainerBuilder()->getDefinitionByType(AnnotationDriver::class);
+			$annotationDriver = $this->getContainerBuilder()->getDefinitionByType(MappingDriver::class);
 			$annotationDriver->addSetup('addPaths', [['vendor/rixafy/country']]);
 		}
 	}
