@@ -18,7 +18,7 @@ class CountryExtension extends CompilerExtension
 	{
 		if (class_exists('Nettrine\ORM\DI\Helpers\MappingHelper')) {
 			\Nettrine\ORM\DI\Helpers\MappingHelper::of($this)
-				->addAnnotation('Rixafy\Country', __DIR__ . '/../../../rixafy/country');
+				->addAttribute('Rixafy\Country', __DIR__ . '/../../../rixafy/country');
 		} else {
 			/** @var ServiceDefinition $annotationDriver */
 			$annotationDriver = $this->getContainerBuilder()->getDefinitionByType(MappingDriver::class);
